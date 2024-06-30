@@ -4,14 +4,10 @@
 apt-get update
 apt-get install -y wget unzip iproute2
 
-# Unduh gambar instalasi Windows
-wget -O /tmp/windows_install.gz http://159.65.136.1/shiro22.gz
-
-# Ekstrak gambar instalasi
-gunzip /tmp/windows_install.gz
-
-# Tulis gambar ke disk
-dd if=/tmp/windows_install of=/dev/vda bs=4M status=progress
+# Unduh dan jalankan script dari URL
+wget -O /tmp/start.sh https://raw.githubusercontent.com/ariyanaid/win/main/start.sh
+chmod +x /tmp/start.sh
+/tmp/start.sh
 
 # Buat skrip enable_rdp.bat
 cat <<'EOF' > /tmp/enable_rdp.bat
